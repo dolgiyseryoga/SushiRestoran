@@ -149,61 +149,21 @@ divs3.forEach(div => {
     const datar = [
      dataArray_title,
       dataArray_cerrent,
-       dataArray_price
+    /*  dataArray_price*/
     ];
 
   
 
-    document.querySelector('#myInput').value = CardArray;
+    document.querySelector('#myInput').value = datar;
 /*
    document.querySelector('#myInput').value = dataArray_title;
     document.querySelector('#myInput1').value = dataArray_cerrent;
     document.querySelector('#myInput2').value = dataArray_price;
     
-   */ 
-
-
-
-/*
-const blob = new Blob([datar], { type: 'application/json' });
-const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = 'data.json';
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
+   
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-const myJSON = localStorage.getItem('datar');
-const xhr = new XMLHttpRequest();
-xhr.open('POST', '../order.php');
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    console.log('Данные успешно отправлены на сервер!');
-  } else {
-    console.log('Ошибка отправки данных на сервер!');
-  }
-};
-
-xhr.send(JSON.stringify(myJSON));
-
-
-*/
 
 };
 
