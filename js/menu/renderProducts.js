@@ -1,6 +1,5 @@
 const productsContainer = document.querySelector('#products-container');
-
-//Запускаем getProducts
+//Запускаем фун-ю getProducts
 getProducts();
 
 //асинхронная функция получения данных из products.json
@@ -14,9 +13,7 @@ async function getProducts() {
 }
 
 function renderProducts(productsArray) {
-
     productsArray.forEach(function(item) {
-
         const productHTML = `<div class="col-md-4">
         <div class="card mb-4" data-id="${item.id}">
             <img class="product-img" src="images/roll/${item.imgSrc}" alt="">
