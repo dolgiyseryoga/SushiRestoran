@@ -1,5 +1,8 @@
 //div внутри корзины, в котором мы добовляем товары
 const cartWrapper = document.querySelector('.cart-wrapper');
+//отслеживаем данные формы в соответствующие переменные
+const Number_Input = document.querySelector('#Number_Input');
+const Email_Input = document.querySelector('#Email_Input');
 
 //создаем пустой массив для товаров в корзине
 var CardArray = [];
@@ -9,10 +12,10 @@ window.addEventListener('click', function(event) {
 
 //проверяем клик строго по кнопкам + или -
 if(event.target.hasAttribute('data-cart')){
-    //находим карточку с товаром, внутри которй был клик
+//находим карточку с товаром, внутри которй был клик
     const card = event.target.closest('.card');
 
-    //собираем данные с этого товара и записываем их в единый обьект productinfo
+//собираем данные с этого товара и записываем их в единый обьект productinfo
     const productInfo = {
         id: card.dataset.id,
         imgSrc: card.querySelector('.product-img').getAttribute('src'),
@@ -23,10 +26,10 @@ if(event.target.hasAttribute('data-cart')){
         counter: card.querySelector('[data-counter]').innerText,    
     };
 
-    //проверем есть ли в корзине такой товар
+//проверем есть ли в корзине такой товар
     const itemInCart =  cartWrapper.querySelector(`[data-id="${productInfo.id}"]`)
 
-    // добовление товаров в массив (тех что в корзине)
+// добовление товаров в массив (тех что в корзине)
     function AddToCardArray(){
         CardArray.push(`${productInfo.title},${productInfo.counter},${productInfo.price}`);
         };
@@ -72,19 +75,33 @@ if(event.target.hasAttribute('data-cart')){
     //пересчет общей стоимости товаров в корзине
     calcCartPriceAndDelivery();}
 });
-   
+
 
 //Логика отправки
-document.querySelector("#SubmitButton").onclick = async function(){
+function SubmitFormOrder(event) {
+// Отменяем перезагрузку страницы при отправке формы
+    event.preventDefault();
 
+//валидация (проверка на пустые строки и корректность вводимых данных)
+if (Number_Input.value === '') {
+    showNotification('Введите номер телефона!');
+} else if (!isValidPhone(Number_Input.value)) {
+    showNotification('Введите корректный номер телефона!');
+} else if (Email_Input.value === '') {
+    showNotification('Введите адрес почты!');
+} else if (!isValidEmail(Email_Input.value)) {
+    showNotification('Введите корректный адрес почты!');
+} else {
+    PushOrder();
+}
     const divs = document.querySelectorAll('div.cart-item__title');
     const divs2 = document.querySelectorAll('div.current-arr');
     const divs3 = document.querySelectorAll('span.total-price');
-    // Создаём пустые массивы для данных о товарах
+// Создаём пустые массивы для данных о товарах
     const dataArray_title = [];
     const dataArray_cerrent = [];
     const dataArray_price = [];
-    // Вытаскиваем содержимое div-ов
+// Вытаскиваем содержимое div-ов
     divs.forEach(div => {
       const data = div.textContent;
       dataArray_title.push(data);
@@ -109,7 +126,29 @@ document.querySelector("#SubmitButton").onclick = async function(){
 //вписываем массивы в input формы для отправки на post
     document.querySelector('#myInput').value = datar;
     document.querySelector('#myInput2').value = data_price;
+};
 
-    showNotification('gud');
 
+function PushOrder() {
+    // Получаем данные формы
+    var formData = $('#order').serialize();
+    // Отправляем данные на сервер
+    $.ajax({
+      type: 'POST',
+      url: '/php/order.php',
+      data: formData,
+      success: function(response) {
+        // Обработка успешного ответа от сервера
+        console.log(response);
+        // Выводим всплывающее уведомление
+        showNotification('Успешно отправлено!');
+        //очищаем форму после отправки
+        $('#order')[0].reset();
+      },
+      error: function(xhr, status, error) {
+        // Обработка ошибки при отправке данных на сервер
+        console.log(status + ': ' + error);
+      }
+    });
+    
 };

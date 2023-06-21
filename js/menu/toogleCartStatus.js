@@ -11,5 +11,4 @@ function toogleCartStatus(){
         cartEmptyBabge.classList.remove('none');
         orderForm.classList.add('none');
     }
-}
-
+};

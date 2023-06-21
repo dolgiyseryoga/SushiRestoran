@@ -32,8 +32,8 @@ $body = 'Заказ успешно оформлен! В Ваш заказ вхо
 
 // Формируем заголовки письма
 $headers = "From: example@example.com\r\n";
-$headers .= "Reply-To: example@example.com\r\n";
+$headers .= "Reply-To: $email .\r\n";
 $headers .= "Content-type: text/plain; charset=utf-8\r\n";
 
 // Отправляем письмо
-mail("recipient@example.com", "Вам писбмо с сайта Sushirestoran!", $body, $headers);
+mail("recipient@example.com", "Вам письмо с сайта Sushirestoran!", $body, $headers);

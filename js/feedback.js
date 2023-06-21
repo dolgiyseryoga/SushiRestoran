@@ -25,6 +25,8 @@ function submitForm(event) {
 }
 
 function PuchFeedback() {
+    ////валидация (проверка на корректный email)
+
             // Получаем данные формы
             var formData = $('#formid').serialize();
             // Отправляем данные на сервер
@@ -47,10 +49,13 @@ function PuchFeedback() {
             });
         } 
 
-//функция валидации (проверка на корректный email)
+//функции валидации
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 function isValidName(name) {
     return /^([а-яА-Яa-zA-Z]+)$/u.test(name);
+}
+function isValidPhone(phone) {
+    return /^\+375\s?\(?(17|25|29|33|44)\)?\s?\d{3}\-?\d{2}\-?\d{2}$/.test(phone);
 }
