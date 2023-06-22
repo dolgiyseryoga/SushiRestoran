@@ -1,4 +1,3 @@
-
 //Функция показа уведомления
 function showNotification(message) {
     // Создаем новый элемент div для уведомления

@@ -228,7 +228,7 @@ a:hover {
   position: absolute;
   left: 50%;
   bottom: 0;
-};
+}
 
 .banner .scroll_btn:hover {
   background: url(../images/scroll.gif) 50% 50% no-repeat #f3c30f;
@@ -240,7 +240,7 @@ a:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
-};
+}
 
 /* navbar section */
 .menu-scroll {

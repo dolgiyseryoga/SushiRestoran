@@ -98,9 +98,9 @@ if (Number_Input.value === '') {
     const divs2 = document.querySelectorAll('div.current-arr');
     const divs3 = document.querySelectorAll('span.total-price');
 // Создаём пустые массивы для данных о товарах
-    const dataArray_title = [];
+    const dataArray_title   = [];
     const dataArray_cerrent = [];
-    const dataArray_price = [];
+    const dataArray_price   = [];
 // Вытаскиваем содержимое div-ов
     divs.forEach(div => {
       const data = div.textContent;
@@ -144,11 +144,18 @@ function PushOrder() {
         showNotification('Успешно отправлено!');
         //очищаем форму после отправки
         $('#order')[0].reset();
+        reloadPage();
       },
       error: function(xhr, status, error) {
         // Обработка ошибки при отправке данных на сервер
         console.log(status + ': ' + error);
       }
     });
-    
 };
+
+
+function reloadPage() {
+    setTimeout(function() {
+      location.reload();
+    }, 4000);
+  }

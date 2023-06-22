@@ -173,18 +173,27 @@ h4 {
 .total-price {
   color: #eb5a1e;
 }
-
 .rouble {
   color: #eb5a1e;
 }
-
 .none {
   display: none;
 }
-
 .container_mod {
   padding-bottom: 5%;
 }
 .btn-primary-mod {
   background-color: #f3c30f;
+}
+.background {
+  background-color: #fff;
+}
+#rate {
+  color: green;
+}
+.sections_mod {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  overflow: hidden;
 }

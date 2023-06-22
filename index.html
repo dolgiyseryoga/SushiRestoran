@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
 	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,700,300italic' rel='stylesheet'
 		type='text/css'>
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/animat/animate.min.css" />
@@ -28,7 +29,7 @@
 		<div class='loaded'>&nbsp;</div>
 	</div>
 	<header id="home" class="header">
-		<div class="main_menu_bg navbar-fixed-top wow slideInDown" data-wow-duration="1s">
+		<div class="main_menu_bg navbar-fixed-top wow slideInDown background" data-wow-duration="1s">
 			<div class="container">
 				<div class="row">
 					<div class="nave_menu">
@@ -52,10 +53,10 @@
 									<ul class="nav navbar-nav navbar-right">
 										<li class="active"><a href="#home">Главная</a></li>
 										<li><a href="#features">Преимущества</a></li>
-										<li><a href="#special">Меню</a></li>
+										<li><a href="#menus">Меню</a></li>
 										<li><a href="#abouts">О нас</a></li>
 										<li><a href="#footer">Контакты</a></li>
-
+										<li id="rate"></li>
 									</ul>
 								</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->
@@ -99,7 +100,8 @@
 
 
 
-	<section id="features" class="features sections">
+	<section id="features" class="features sections_mod  ">
+		<!--sections-->
 		<div class="container">
 			<div class="row">
 				<div class="features_content text-center">
@@ -238,7 +240,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="head_title text-center wow slideInLeft" data-wow-duration="1.5s">
-					<h2>Меню</h2>
+					<h2>Галерея</h2>
 					<div class="separetor"></div>
 				</div>
 				<div class="main_special text-center wow slideInUp" data-wow-duration="3s">
@@ -483,7 +485,7 @@
 	<script src="/js/menu/card.js"></script>
 	<script src="/js/notification.js"></script>
 	<script src="/js/feedback.js"></script>
-
+	<script src="/js/api/api.js"></script>
 
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
