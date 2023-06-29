@@ -83,9 +83,4 @@ $('.nav a').bind('click', function () {
 
 
 
-		
-  
- 
-
-
 	
